@@ -1,1 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Connect</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card video-card">
+        <div class="card-header">
+          <h1>Let's Connect</h1>
+          <div class="status-wrap">
+            <span id="statusDot" class="status-dot disconnected"></span>
+            <span id="statusText">Disconnected</span>
+          </div>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-tile">
+            <video id="localVideo" autoplay muted playsinline></video>
+            <span class="video-label">You</span>
+          </div>
+          <div class="video-tile">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <span class="video-label">Stranger</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="nextBtn" class="btn secondary" disabled>Next</button>
+        </div>
+      </section>
+
+      <section class="card chat-card">
+        <div id="chatMessages" class="chat-messages"></div>
+        <form id="chatForm" class="chat-input-row">
+          <input id="chatInput" type="text" placeholder="Type a message..." maxlength="700" autocomplete="off" />
+          <input id="fileInput" type="file" accept="image/*,video/*" />
+          <button type="submit" class="btn primary">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
 
