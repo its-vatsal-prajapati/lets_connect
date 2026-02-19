@@ -29,7 +29,10 @@ function appendMessage(kind, text, media = null) {
   wrapper.className = `msg ${kind}`;
 
   const label = kind === "you" ? "You" : kind === "stranger" ? "Stranger" : "System";
-  wrapper.innerHTML = `<strong>${label}:</strong> ${text}`;
+  const labelNode = document.createElement("strong");
+  labelNode.textContent = `${label}: `;
+  wrapper.appendChild(labelNode);
+  wrapper.appendChild(document.createTextNode(text || ""));
 
   if (media) {
     if (media.mimeType.startsWith("image/")) {
@@ -269,4 +272,3 @@ window.addEventListener("beforeunload", () => {
     localStream.getTracks().forEach((track) => track.stop());
   }
 });
-
