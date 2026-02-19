@@ -88,6 +88,11 @@ async def disconnect_partner(client_id: str, notify: bool = True) -> None:
         await add_to_queue_or_match(partner_id)
 
 
+@app.get("/healthz")
+async def healthcheck() -> dict:
+    return {"status": "ok"}
+
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket) -> None:
     await websocket.accept()
